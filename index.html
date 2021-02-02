@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+
+    <meta name="author" content="Cavendishh">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <title>Task Manager</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="index.js" defer></script>
+
+  </head>
+  <body>
+
+    <div class='container'>
+      <div class='row'>
+        <div class='col-6 offset-3 mt-3 mb-3'>
+          <h1>Task Manager</h1>
+      <div class='content'>
+        <form name='taskForm' onsubmit='return addTask()'>
+          <div>
+            <label class='form-label mt-3' for='taskMenu'>Importance</label><br>
+            <select class='form-select' name='taskMenu' id='importance'>
+              <option value='Low'>Low</option>
+              <option value='Medium'>Medium</option>
+              <option value='High'>High</option>
+            </select>
+          </div>
+          <div>
+            <label class='form-label mt-3' for='note'>Note</label><br>
+            <textarea class='form-control' id='note' placeholder='Write note here' rows='5'></textarea>
+            <div id='contentError'></div>
+          </div>
+          <div>
+            <label class='form-label mt-3' for='deadlineDate'>Deadline</label><br>
+            <input class='form-check-input' type='radio' name='deadline' id='noDeadline' value='0' checked='checked'>
+            <label class='form-check-label' for='noDeadLine'>No</label>
+            <input class='form-check-input' type='radio' name='deadline' id='addDeadLine' value='1'>
+            <label class='form-check-label mb-3' for='addDeadLine'>Yes</label>
+            <input type='date' id='deadlineDate'>
+          </div>
+          <input class='btn btn-primary btn-lg' type='submit' id='submit' value='Add task'>
+        </div>
+
+        <div class='content mt-3 mb-3'>
+          <label class='form-check-label mt-3 mb-2'>Show tasks</label><br>
+          <input class='form-check-input bg-info' type='checkbox' id='filterLow' name='filterLow' value='low' checked='checked'></input>
+          <label class='form-check-label' for='filterLow'>Low</label>
+          <input class='form-check-input bg-warning' type='checkbox' id='filterMedium' name='filterMedium' value='medium' checked='checked'></input>
+          <label class='form-check-label' for='filterMedium'>Medium</label>
+          <input class='form-check-input bg-danger' type='checkbox' id='filterHigh' name='filterHigh' value='high' checked='checked'></input>
+          <label class='form-check-label' for='filterHigh'>High</label>
+          <input class='form-check-input' type='checkbox' id='filterUnfinished' name='filterUnfinished' checked='checked'></input>
+          <label class='form-check-label' for='filterUnfinished'>Unfinished</label>
+          <input class='form-check-input' type='checkbox' id='filterFinished' name='filterFinished' checked='checked'></input>
+          <label class='form-check-label' for='filterFinished'>Finished</label>
+        </form>
+      </div>
+        </div>
+      </div>
+      <div class='content mt-3' id='unfinishedTaskDiv'>
+        <h3>Tasks<span id='unfinishedAmount'></span></h3>
+        <table class='table' id='taskTable'>
+          <thead>
+              <th class='col-2'>Date</th>
+              <th class='col-1'>Importance</th>
+              <th class='col'>Note</th>
+              <th class='col-2'>Deadline</th>
+              <th class='col-1'>Delete</th>
+            </tr>
+          </thead>
+          <tbody id='unfinishedTaskList'>
+          </tbody>
+        </table>
+      </div>
+      <div class='content mt-5' id='finishedTaskDiv'>
+        <h3>Finished tasks<span id='finishedAmount'></span></h3>
+        <table class='table' id='finishedTaskTable'>
+          <thead>
+            <tr class='trTitles'>
+              <th class='col-2'>Date</th>
+              <th class='col-1'>Time</th>
+              <th class='col'>Note</th>
+              <th class='col-2'>Deadline</th>
+              <th class='col-1'>Finished</th>
+            </tr>
+          </thead>
+          <tbody id='finishedTaskList'>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
