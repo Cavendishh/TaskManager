@@ -1,4 +1,4 @@
-<strong>PDynamic Web Application with Javascript</strong>
+<p><strong>PDynamic Web Application with Javascript</strong></p>
 <strong>PCategory: Dynamic Javascript</strong>
 <strong>PProject date: October 2020</strong>
 <strong>Project URL:</strong> https://eloquent-hamilton-5a8993.netlify.app/
